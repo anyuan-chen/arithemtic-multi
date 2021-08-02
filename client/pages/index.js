@@ -15,7 +15,11 @@ export default function Home() {
   }, [ENDPOINT])
   return (
     <div>
-      <h1>lol</h1>
+      <h1>Neptune</h1>
+      <div>
+        <Link href="/singleplayer"><a><button>Singleplayer</button></a></Link>
+        <Link href="rooms"><a><button>Join A Room</button></a></Link>
+      </div>
     </div>
   )
 }
