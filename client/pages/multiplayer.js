@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function game() {
+export default function Multiplayer() {
     return (
         <div>
             

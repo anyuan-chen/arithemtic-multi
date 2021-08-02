@@ -13,6 +13,11 @@ export default function Home() {
     socket.emit("handshake")
     console.log(socket)
   }, [ENDPOINT])
+
+  useEffect(() => {
+    console.log(socket)
+  }) 
+  
   return (
     <div>
       <h1>Neptune</h1>
