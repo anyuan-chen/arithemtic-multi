@@ -8,6 +8,9 @@ corsOptions = {
   cors: true,
   origins: ["http://localhost:3000"],
 }
+const rooms = {}
+
+
 const io = socketio(server, corsOptions)
 
 app.get('/', (req, res) => {
@@ -20,8 +23,17 @@ io.on('connect', (socket) => {
     console.log("a disconnect")
   })
 
-  socket.on("handshake", () => {
-    console.log("recieved")
+  socket.on("get_rooms", () => {
+    const arr = Array.from(io.sockets.adapter.rooms)
+    const filtered = arr.filter(room => !room[1].has(room[0]))
+    const res = filtered.map(i => i[0]);
+    console.log(arr);
+    socket.emit("return_rooms", res)
+  })
+
+  socket.on("make_room", (name) => {
+    socket.join(name) 
+    console.log(io.sockets.adapter.rooms)
   })
 });
 
