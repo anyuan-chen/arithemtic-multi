@@ -3,21 +3,14 @@ import Image from 'next/image'
 import { useEffect } from 'react'
 import io from "socket.io-client"
 import Link from "next/link"
+import { useAppContext } from '../context/state'
 
 let socket;
 
 export default function Home() {
-  const ENDPOINT = "http://localhost:4000"
-  useEffect(() => {
-    socket = io(ENDPOINT);
-    socket.emit("handshake")
-    console.log(socket)
-  }, [ENDPOINT])
 
-  useEffect(() => {
-    console.log(socket)
-  }) 
-  
+
+
   return (
     <div>
       <h1>Neptune</h1>

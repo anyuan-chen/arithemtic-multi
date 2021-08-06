@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function room(props) {
+export default function Room(props) {
     return (
         <div>
             <div>

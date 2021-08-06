@@ -1,9 +1,10 @@
 import { createContext, useContext } from 'react';
-
+import io from "socket.io-client"
 const AppContext = createContext();
+const ENDPOINT = "http://localhost:4000"
 
 export function AppWrapper({ children }) {
-    let sharedState = { hi: 3 }
+    let sharedState = { socket: io(ENDPOINT) }
 
     return (
         <AppContext.Provider value={sharedState}>
